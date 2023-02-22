@@ -9,6 +9,8 @@
     "start": "npm run dev"
   },
   "dependencies": {
+    "@apollo/client": "^3.7.9",
+    "graphql": "^16.6.0",
     "umi": "^4.0.52"
   },
   "devDependencies": {

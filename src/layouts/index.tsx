@@ -1,21 +1,19 @@
-import { Link, Outlet } from 'umi';
-import styles from './index.less';
+import { Link, Outlet } from "umi";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+
+const client = new ApolloClient({
+  uri: process.env.URI,
+  cache: new InMemoryCache(),
+  headers: {
+    "content-type": "application/json",
+    "x-hasura-admin-secret": process.env.SECRET ?? "",
+  },
+});
 
 export default function Layout() {
   return (
-    <div className={styles.navs}>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/docs">Docs</Link>
-        </li>
-        <li>
-          <a href="https://github.com/umijs/umi">Github</a>
-        </li>
-      </ul>
+    <ApolloProvider client={client}>
       <Outlet />
-    </div>
+    </ApolloProvider>
   );
 }
