@@ -5,9 +5,6 @@ export default defineConfig({
     "process.env.URI": "http://localhost:8080/v1/graphql",
     "process.env.SECRET": "myadminsecretkey",
   },
-  routes: [
-    { path: "/", component: "index" },
-    { path: "/docs", component: "docs" },
-  ],
+  routes: [{ path: "/", component: "IndexPage" }],
   npmClient: "pnpm",
 });
