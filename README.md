@@ -1,4 +1,4 @@
-# umi_hasura
+# umi 集成 hasura
 
 ## 启动 hasura 服务（docker）
 
@@ -27,5 +27,6 @@ define: {
 ## 启动项目
 
 ```shell
+pnpm install
 pnpm start
 ```
