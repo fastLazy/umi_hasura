@@ -9,6 +9,23 @@ sudo docker-compose up
 
 访问：http://localhost:8080/console
 
-## 修改 hasura 登录密码
+## hasura 登录密码
 
 > 打开 backend/docker-compose.yml，找到 HASURA_GRAPHQL_ADMIN_SECRET
+
+## 修改配置文件
+
+打开.umirc.ts
+
+```js
+define: {
+    "process.env.URI": "http://localhost:8080/v1/graphql",
+    "process.env.SECRET": "myadminsecretkey",
+},
+```
+
+## 启动项目
+
+```shell
+pnpm start
+```
