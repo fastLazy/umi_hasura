@@ -7,6 +7,8 @@ const IndexPage: React.FC = () => {
     limit: 1,
   });
 
+  console.log(a);
+
   return (
     <>
       <Table />

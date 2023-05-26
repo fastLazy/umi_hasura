@@ -16,13 +16,13 @@ export const useGetUserList = (params?: IUserList) => {
       $offset: Int = 0
       $where: users_bool_exp = {}
     ) {
-      users_aggregate(offset: $offset, limit: $limit, where: $where) {
-        count: aggregate {
+      values: users(offset: $offset, limit: $limit, where: $where) {
+        id
+        name
+      }
+      count: users_aggregate(where: $where) {
+        aggregate {
           count
-        }
-        values: nodes {
-          id
-          user_name
         }
       }
     }

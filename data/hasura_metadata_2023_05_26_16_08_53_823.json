@@ -1,0 +1,42 @@
+{
+  "resource_version": 9,
+  "metadata": {
+    "version": 3,
+    "sources": [
+      {
+        "name": "test",
+        "kind": "postgres",
+        "tables": [
+          {
+            "table": {
+              "name": "users",
+              "schema": "public"
+            },
+            "select_permissions": [
+              {
+                "role": "user",
+                "permission": {
+                  "columns": [
+                    "id",
+                    "name"
+                  ],
+                  "filter": {},
+                  "allow_aggregations": true
+                }
+              }
+            ]
+          }
+        ],
+        "configuration": {
+          "connection_info": {
+            "database_url": {
+              "from_env": "PG_DATABASE_URL"
+            },
+            "isolation_level": "read-committed",
+            "use_prepared_statements": false
+          }
+        }
+      }
+    ]
+  }
+}
