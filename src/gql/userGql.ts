@@ -1,6 +1,6 @@
-import { gql, useQuery } from "@apollo/client";
+import { gql } from "@apollo/client";
 
-interface IUserList {
+export interface IUserList {
   /** 每页多少条*/
   offset?: number;
   /** 当前页*/
@@ -8,9 +8,9 @@ interface IUserList {
   /** 查询条件*/
   where?: any;
 }
-/** 查询用户列表（分页）*/
-export const useGetUserList = (params?: IUserList) => {
-  const GQL = gql`
+
+const USER_GQL = {
+  LIST: gql`
     query GetUsers(
       $limit: Int = 10
       $offset: Int = 0
@@ -26,6 +26,7 @@ export const useGetUserList = (params?: IUserList) => {
         }
       }
     }
-  `;
-  return useQuery(GQL, { variables: params });
+  `,
 };
+
+export default USER_GQL;
